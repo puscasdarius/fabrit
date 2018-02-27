@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="App">
+  <head>
+    <meta charset="utf-8">
+    <title>New City</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/new_task.css">
+  </head>
+  <body ng-controller="Controller" ng-cloak>
+    <div class="page">
+
+      <div class="menu-bar">
+        <a href="/">New City</a>
+        <a href="/statistics">Statistics</a>
+      </div>
+
+      <div class="page-content">
+        <form class="form" name="form">
+          <div class="input_select">
+            <label for="select_country">Select Country</label>
+            <select name="input_country" ng-model="input_country" class="custom-select" id="select_country">
+              <option ng-repeat="country in countries" value="{{country._id}}">{{country.name}}</option>
+            </select>
+          </div>
+
+          <div class="input_select">
+            <label for="select_city">Select City</label>
+            <select name="input_city"ng-model="input_city" class="custom-select" id="select_city">
+              <option ng-repeat="city in cities" value="{{city._id}}">{{city.name}}</option>
+            </select>
+          </div>
+
+          <p ng-if="!form.input_occ.$valid">Insert numbers</p>
+          <div class="input-group">
+            <span class="input-group-addon">#</span>
+            <input name="input_occ" ng-pattern="input_occ_pattern" ng-model="input_occ" type="text" class="form-control" placeholder="Insert number of occupants">
+          </div>
+
+          <p ng-if="!form.input_area.$valid">Insert numbers</p>
+          <div class="input-group">
+            <span class="input-group-addon">km x km</span>
+            <input name="input_area" ng-pattern="input_area_pattern" ng-model="input_area" type="text" class="form-control" placeholder="Insert area of the area">
+          </div>
+          <a id="btn" href="javascript:void(0)" ng-click="submitData()">Submit</a>
+        </form>
+      </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <script type="text/javascript" src="/js/new_task.js"></script>
+  </body>
+</html>
